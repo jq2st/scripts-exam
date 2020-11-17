@@ -1,10 +1,11 @@
 <div class="popup-bg">
     <div class="edit">
         <div class="close" (click)="closePopup()"></div>
-        <form [formGroup]="form" (submit)="addItem()">
+        <form [formGroup]="form" (submit)="editItem()">
             <input type="text" formControlName="name">
             <input type="text" formControlName="amount">
-            <button type="submit" [disabled]="form.invalid">Изменить</button>
+            <button type="submit" [disabled]="form.invalid">Сохранить</button>
+            <button (click)="deleteItem()">Удалить</button>
         </form>
     </div>
 </div>

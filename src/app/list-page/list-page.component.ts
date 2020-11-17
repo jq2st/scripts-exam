@@ -37,7 +37,20 @@ export class ListPageComponent implements OnInit {
 
   editOrder(item) {
     this.httpService.editOrder(item)
-      .subscribe()
+      .subscribe(n => {
+        this.items.forEach((x, i) => {
+          if (x.id == n.id) {
+            this.items[i] = n
+          }
+        })
+      }) 
+  }
+
+  deleteOrder(item) {
+    this.httpService.deleteOrder(item)
+      .subscribe(() => {
+        this.items = this.items.filter(i => item.id != i.id)
+      })
   }
 
 }

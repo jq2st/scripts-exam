@@ -40,4 +40,8 @@ export class HttpService {
     return this.http.put<Order>(this.dblink + '/list/' + item.id + '.json', item)
   }
 
+  deleteOrder(item) {
+    return this.http.delete(this.dblink + '/list/' + item.id + '.json', item)
+  }
+
 }

@@ -28,6 +28,7 @@ export class AddOrderComponent implements OnInit {
       status: false
     }
     this.onAdd.emit(item)
+    this.form.reset()
   }
 
 }

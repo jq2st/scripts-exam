@@ -11,6 +11,7 @@ import { PopupService } from 'src/app/services/popup.service';
 export class EditOrderComponent implements OnInit {
 
   @Output() onEdit = new EventEmitter<Order>()
+  @Output() onDelete = new EventEmitter<Order>()
   item: Order
   form: FormGroup
 
@@ -27,9 +28,16 @@ export class EditOrderComponent implements OnInit {
   editItem() {
     let item = {
       ...this.form.value,
-      status: this.item.status
+      status: this.item.status,
+      id: this.item.id
     }
     this.onEdit.emit(item)
+    this.closePopup()
+  }
+
+  deleteItem() {
+    this.onDelete.emit(this.item)
+    this.closePopup()
   }
 
   closePopup() {
