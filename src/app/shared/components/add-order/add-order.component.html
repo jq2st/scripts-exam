@@ -1,0 +1,7 @@
+<div class="add">
+    <form [formGroup]="form" (submit)="addItem()">
+        <input type="text" formControlName="name">
+        <input type="text" formControlName="amount">
+        <button type="submit" [disabled]="form.invalid">Добавить</button>
+    </form>
+</div>

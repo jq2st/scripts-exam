@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Order } from '../interfaces/interfaces';
+import { HttpService } from '../services/http.service';
 
 @Component({
   selector: 'app-list-page',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListPageComponent implements OnInit {
 
-  constructor() { }
+  items: Order[] = []
+
+  constructor(private httpService: HttpService) { }
 
   ngOnInit() {
+    this.httpService.getOrders()
+      .subscribe(list => {
+        this.items = list
+      })
+  }
+
+  changeStatus(id) {
+    this.items
   }
 
 }
