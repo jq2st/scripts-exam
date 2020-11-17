@@ -6,5 +6,5 @@
     <app-edit-order *ngIf="popupService.isEditItem" (onEdit)="editOrder($event)" (onDelete)="deleteOrder($event)"></app-edit-order>
 </div>
 <ng-template #empty>
-    <p>Список пока пустой. Вы можете добавить первый елемент.</p>
+    <p class="miss">Список пока пустой. Вы можете добавить первый елемент.</p>
 </ng-template>

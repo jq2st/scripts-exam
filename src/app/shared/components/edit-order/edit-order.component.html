@@ -2,8 +2,8 @@
     <div class="edit">
         <div class="close" (click)="closePopup()"></div>
         <form [formGroup]="form" (submit)="editItem()">
-            <input type="text" formControlName="name">
-            <input type="text" formControlName="amount">
+            <input type="text" placeholder="Название" formControlName="name">
+            <input type="text" placeholder="Количество" formControlName="amount">
             <button type="submit" [disabled]="form.invalid">Сохранить</button>
             <button (click)="deleteItem()">Удалить</button>
         </form>
