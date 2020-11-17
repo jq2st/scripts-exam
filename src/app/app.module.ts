@@ -11,6 +11,7 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { ListPageComponent } from './list-page/list-page.component';
 import { OrderItemComponent } from './shared/components/order-item/order-item.component';
 import { AddOrderComponent } from './shared/components/add-order/add-order.component';
+import { EditOrderComponent } from './shared/components/edit-order/edit-order.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AddOrderComponent } from './shared/components/add-order/add-order.compo
     MainPageComponent,
     ListPageComponent,
     OrderItemComponent,
-    AddOrderComponent
+    AddOrderComponent,
+    EditOrderComponent
   ],
   imports: [
     BrowserModule,

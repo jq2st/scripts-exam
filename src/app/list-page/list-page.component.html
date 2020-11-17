@@ -1,3 +1,5 @@
 <div class="list">
     <app-order-item *ngFor="let item of items" [item]="item"></app-order-item>
 </div>
+<app-add-order (onAdd)="addOrder($event)"></app-add-order>
+<app-edit-order *ngIf="popupService.isEditItem" (onEdit)="editOrder($event)"></app-edit-order>

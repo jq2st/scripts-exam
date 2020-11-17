@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Order } from '../interfaces/interfaces';
 import { HttpService } from '../services/http.service';
+import { map } from 'rxjs/operators'
+import { PopupService } from '../services/popup.service';
 
 @Component({
   selector: 'app-list-page',
@@ -10,8 +12,10 @@ import { HttpService } from '../services/http.service';
 export class ListPageComponent implements OnInit {
 
   items: Order[] = []
+  editItem: Order
+  isEditItem = false
 
-  constructor(private httpService: HttpService) { }
+  constructor(private httpService: HttpService, public popupService: PopupService) { }
 
   ngOnInit() {
     this.httpService.getOrders()
@@ -22,6 +26,18 @@ export class ListPageComponent implements OnInit {
 
   changeStatus(id) {
     this.items
+  }
+
+  addOrder(item) {
+    this.httpService.addOrder(item)
+      .subscribe(item => {
+        this.items.push(item)
+      })
+  }
+
+  editOrder(item) {
+    this.httpService.editOrder(item)
+      .subscribe()
   }
 
 }
