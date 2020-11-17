@@ -12,6 +12,7 @@ import { ListPageComponent } from './list-page/list-page.component';
 import { OrderItemComponent } from './shared/components/order-item/order-item.component';
 import { AddOrderComponent } from './shared/components/add-order/add-order.component';
 import { EditOrderComponent } from './shared/components/edit-order/edit-order.component';
+import { SortPipe } from './pipes/sort.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { EditOrderComponent } from './shared/components/edit-order/edit-order.co
     ListPageComponent,
     OrderItemComponent,
     AddOrderComponent,
-    EditOrderComponent
+    EditOrderComponent,
+    SortPipe
   ],
   imports: [
     BrowserModule,

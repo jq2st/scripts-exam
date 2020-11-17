@@ -20,8 +20,10 @@ export class ListPageComponent implements OnInit {
   ngOnInit() {
     this.httpService.getOrders()
       .subscribe(list => {
-        this.items = list
-      })
+        if (list.length > -2) {
+          this.items = list
+        }
+      }, err => console.log('empty'))
   }
 
   addOrder(item) {
@@ -53,7 +55,6 @@ export class ListPageComponent implements OnInit {
     event.item.status = event.status
     this.httpService.editOrder(event.item)
       .subscribe()
-    console.log(event)
   }
 
 }

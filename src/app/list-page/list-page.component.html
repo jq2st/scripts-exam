@@ -1,7 +1,10 @@
 <div class="content">
     <app-add-order (onAdd)="addOrder($event)"></app-add-order>
-    <div class="list">
-        <app-order-item *ngFor="let item of items" [item]="item" (onBuyChange)="changeStatus($event)"></app-order-item>
+    <div class="list" *ngIf="items.length; else empty">
+        <app-order-item *ngFor="let item of items | sort" [item]="item" (onBuyChange)="changeStatus($event)"></app-order-item>
     </div>
     <app-edit-order *ngIf="popupService.isEditItem" (onEdit)="editOrder($event)" (onDelete)="deleteOrder($event)"></app-edit-order>
 </div>
+<ng-template #empty>
+    <p>Список пока пустой. Вы можете добавить первый елемент.</p>
+</ng-template>
