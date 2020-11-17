@@ -24,10 +24,6 @@ export class ListPageComponent implements OnInit {
       })
   }
 
-  changeStatus(id) {
-    this.items
-  }
-
   addOrder(item) {
     this.httpService.addOrder(item)
       .subscribe(item => {
@@ -51,6 +47,13 @@ export class ListPageComponent implements OnInit {
       .subscribe(() => {
         this.items = this.items.filter(i => item.id != i.id)
       })
+  }
+
+  changeStatus(event) {
+    event.item.status = event.status
+    this.httpService.editOrder(event.item)
+      .subscribe()
+    console.log(event)
   }
 
 }

@@ -1,0 +1,24 @@
+header {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: white;
+    .content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .menu ul {
+            display: flex;
+            list-style: none;
+            li {
+                margin-left: 20px;
+            }
+        }
+    }
+} 

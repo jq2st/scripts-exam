@@ -11,6 +11,7 @@ export class OrderItemComponent implements OnInit {
 
   @Input('item') item: Order
   @Output() onChange = new EventEmitter<Order>()
+  @Output() onBuyChange = new EventEmitter<any>()
 
   constructor(private popupService: PopupService) { }
 
@@ -20,6 +21,14 @@ export class OrderItemComponent implements OnInit {
   editThis() {
     this.popupService.isEditItem = true
     this.popupService.editItem = this.item
+  }
+
+  buyItem() {
+    this.onBuyChange.emit({item: this.item, status: true})
+  }
+
+  deBuyItem() {
+    this.onBuyChange.emit({item: this.item, status: false})
   }
 
 }

@@ -1,5 +1,7 @@
-<app-add-order (onAdd)="addOrder($event)"></app-add-order>
-<div class="list">
-    <app-order-item *ngFor="let item of items" [item]="item"></app-order-item>
+<div class="content">
+    <app-add-order (onAdd)="addOrder($event)"></app-add-order>
+    <div class="list">
+        <app-order-item *ngFor="let item of items" [item]="item" (onBuyChange)="changeStatus($event)"></app-order-item>
+    </div>
+    <app-edit-order *ngIf="popupService.isEditItem" (onEdit)="editOrder($event)" (onDelete)="deleteOrder($event)"></app-edit-order>
 </div>
-<app-edit-order *ngIf="popupService.isEditItem" (onEdit)="editOrder($event)" (onDelete)="deleteOrder($event)"></app-edit-order>

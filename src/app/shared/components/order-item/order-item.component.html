@@ -1,9 +1,9 @@
 <div class="item" [ngStyle]="{background: item.status ? 'white' : 'green'}">
-    <p>{{item.name}}</p>
-    <p>{{item.amount}}</p>
+    <p>Название: <span>{{item.name}}</span></p>
+    <p>Количество: <span>{{item.amount}}</span></p>
     <button (click)="editThis()">Изменить</button>
-    <button *ngIf="!item.status; else tobuy">Куплено</button>
+    <button *ngIf="!item.status; else tobuy" (click)="buyItem()">Куплено</button>
 </div>
 <ng-template #tobuy>
-    <button>Не Куплено</button>
+    <button (click)="deBuyItem()">Не Куплено</button>
 </ng-template>
